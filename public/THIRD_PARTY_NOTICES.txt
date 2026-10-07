@@ -1,0 +1,47 @@
+Third-party notices — Point Atlas Fiveview
+
+Project-specific source code is licensed under MIT; see the root LICENSE
+and licenses/point-atlas-fiveview-MIT.txt. Third-party components retain their
+own licenses. The unmodified IBM Plex Sans JP Bold font is SIL OFL-1.1; its
+exact license is in licenses/IBM-Plex-OFL-1.1.txt.
+
+Versions below are installed package metadata. MindAR prebuilt controller
+embeds TensorFlow 4.16.0, which is distinct from installed TensorFlow 4.22.0.
+Notices for potentially embedded transitive dependencies are retained
+conservatively; installed versions do not assert the bundled versions.
+
+- three (installed 0.160.0) — MIT; three-LICENSE.txt
+- mind-ar (installed 1.2.5) — MIT; mind-ar-LICENSE.txt
+- @tensorflow/tfjs (installed 4.22.0; prebuilt observed 4.16.0) — Apache-2.0; Apache-2.0.txt
+- @tensorflow/tfjs-core (installed 4.22.0; prebuilt observed 4.16.0) — Apache-2.0; Apache-2.0.txt
+- @tensorflow/tfjs-backend-webgl (installed 4.22.0; prebuilt observed 4.16.0) — Apache-2.0; Apache-2.0.txt
+- @tensorflow/tfjs-backend-cpu (installed 4.22.0; prebuilt observed 4.16.0) — Apache-2.0; Apache-2.0.txt
+- @tensorflow/tfjs-converter (installed 4.22.0; prebuilt observed 4.16.0) — Apache-2.0; Apache-2.0.txt
+- @tensorflow/tfjs-layers (installed 4.22.0; prebuilt observed 4.16.0) — Apache-2.0 AND MIT; tfjs-layers-4.16.0-LICENSE.txt and Apache-2.0.txt
+- @tensorflow/tfjs-data (installed 4.22.0; prebuilt observed 4.16.0) — Apache-2.0; Apache-2.0.txt
+- @msgpack/msgpack (installed 2.8.0) — ISC; msgpack-msgpack-LICENSE.txt
+- ml-matrix (installed 6.14.0) — MIT; ml-matrix-LICENSE.txt
+- ml-array-rescale (installed 2.0.0) — MIT; ml-array-rescale-LICENSE.txt
+- ml-array-max (installed 2.0.0) — MIT; ml-array-max-LICENSE.txt
+- ml-array-min (installed 2.0.0) — MIT; ml-array-min-LICENSE.txt
+- tinyqueue (installed 2.0.3) — ISC; tinyqueue-LICENSE.txt
+- seedrandom (installed 3.0.5) — MIT; seedrandom-MIT.txt
+- long (installed 4.0.0) — Apache-2.0; long-LICENSE.txt
+
+The original notices embedded in upstream distribution code are retained.
+MediaPipe face tracking, node-canvas offline compilation, original print
+tracking targets, artwork images and original glyph binaries are excluded
+from this generic image-AR build. No third-party logo is bundled. Inputs
+are supplied by the user and processed locally.
+
+Additional source and build notices:
+Upstream copyright/license comment blocks from the image-AR modules are
+retained in licenses/MindAR-1.2.5-embedded-NOTICES.txt.
+Installed locked dependency license metadata is also recorded in
+docs/DEPENDENCY_LICENSES.json in the source archive. Development dependencies
+are fetched with npm ci; their code and node_modules are not included here.
+The complete TensorFlow.js Layers copyright and dual license text was copied
+unchanged from the official versioned source:
+https://raw.githubusercontent.com/tensorflow/tfjs/tfjs-v4.16.0/tfjs-layers/LICENSE
+This notice does not assert that every installed dependency appears in the
+browser bundle or that installed and embedded versions are identical.

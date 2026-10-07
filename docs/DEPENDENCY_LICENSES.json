@@ -1,0 +1,1151 @@
+{
+  "scope": "Installed fixed lockfile package metadata; not a legal review or complete bundled-version map",
+  "packages": [
+    {
+      "name": "@babel/runtime",
+      "version": "7.29.7",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@esbuild/darwin-arm64",
+      "version": "0.25.12",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@isaacs/fs-minipass",
+      "version": "4.0.1",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.5.5",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@mapbox/node-pre-gyp",
+      "version": "1.0.11",
+      "license": "BSD-3-Clause",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@mediapipe/tasks-vision",
+      "version": "0.10.35",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@msgpack/msgpack",
+      "version": "2.8.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@rollup/rollup-darwin-arm64",
+      "version": "4.62.4",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@tensorflow/tfjs",
+      "version": "4.22.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@tensorflow/tfjs-backend-cpu",
+      "version": "4.22.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@tensorflow/tfjs-backend-webgl",
+      "version": "4.22.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@tensorflow/tfjs-converter",
+      "version": "4.22.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@tensorflow/tfjs-core",
+      "version": "4.22.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@tensorflow/tfjs-data",
+      "version": "4.22.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@tensorflow/tfjs-layers",
+      "version": "4.22.0",
+      "license": "Apache-2.0 AND MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/chai",
+      "version": "5.2.3",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@types/deep-eql",
+      "version": "4.0.2",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@types/estree",
+      "version": "1.0.9",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/long",
+      "version": "4.0.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/node",
+      "version": "26.1.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/node-fetch",
+      "version": "2.6.13",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/offscreencanvas",
+      "version": "2019.7.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/offscreencanvas",
+      "version": "2019.3.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/seedrandom",
+      "version": "2.4.34",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@types/stats.js",
+      "version": "0.17.4",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@types/three",
+      "version": "0.160.0",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@types/webxr",
+      "version": "0.5.24",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@vitejs/plugin-basic-ssl",
+      "version": "1.2.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "@vitest/expect",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@vitest/mocker",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@vitest/pretty-format",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@vitest/runner",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@vitest/snapshot",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@vitest/spy",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@vitest/utils",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "@webgpu/types",
+      "version": "0.1.38",
+      "license": "BSD-3-Clause",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "abbrev",
+      "version": "1.1.1",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "agent-base",
+      "version": "6.0.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "ansi-regex",
+      "version": "5.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "ansi-styles",
+      "version": "4.3.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "aproba",
+      "version": "2.1.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "are-we-there-yet",
+      "version": "2.0.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "argparse",
+      "version": "1.0.10",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "assertion-error",
+      "version": "2.0.1",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "asynckit",
+      "version": "0.4.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "balanced-match",
+      "version": "1.0.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "brace-expansion",
+      "version": "1.1.18",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "cac",
+      "version": "6.7.14",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "call-bind-apply-helpers",
+      "version": "1.0.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "canvas",
+      "version": "2.11.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "chai",
+      "version": "5.3.3",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "chalk",
+      "version": "4.1.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "check-error",
+      "version": "2.1.3",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "chownr",
+      "version": "3.0.0",
+      "license": "BlueOak-1.0.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "cliui",
+      "version": "7.0.4",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "color-convert",
+      "version": "2.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "color-name",
+      "version": "1.1.4",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "color-support",
+      "version": "1.1.3",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "combined-stream",
+      "version": "1.0.8",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "complex.js",
+      "version": "2.4.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "concat-map",
+      "version": "0.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "console-control-strings",
+      "version": "1.1.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "core-js",
+      "version": "3.29.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "debug",
+      "version": "4.4.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "decimal.js",
+      "version": "10.6.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "decompress-response",
+      "version": "4.2.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "deep-eql",
+      "version": "5.0.2",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "delayed-stream",
+      "version": "1.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "delegates",
+      "version": "1.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "dunder-proto",
+      "version": "1.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "emoji-regex",
+      "version": "8.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "es-define-property",
+      "version": "1.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "es-errors",
+      "version": "1.3.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "es-module-lexer",
+      "version": "1.7.0",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "es-object-atoms",
+      "version": "1.1.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "es-set-tostringtag",
+      "version": "2.1.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "esbuild",
+      "version": "0.25.12",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "escalade",
+      "version": "3.2.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "escape-latex",
+      "version": "1.2.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "estree-walker",
+      "version": "3.0.3",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "expect-type",
+      "version": "1.4.0",
+      "license": "Apache-2.0",
+      "scope": "development"
+    },
+    {
+      "name": "fdir",
+      "version": "6.5.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "fflate",
+      "version": "0.6.11",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "form-data",
+      "version": "4.0.6",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "fraction.js",
+      "version": "4.3.4",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "fs.realpath",
+      "version": "1.0.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "fsevents",
+      "version": "2.3.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "function-bind",
+      "version": "1.1.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "gauge",
+      "version": "3.0.2",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "get-caller-file",
+      "version": "2.0.5",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "get-intrinsic",
+      "version": "1.3.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "get-proto",
+      "version": "1.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "glob",
+      "version": "7.2.3",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "gopd",
+      "version": "1.2.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "has-flag",
+      "version": "4.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "has-symbols",
+      "version": "1.1.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "has-tostringtag",
+      "version": "1.0.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "has-unicode",
+      "version": "2.0.1",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "hasown",
+      "version": "2.0.4",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "https-proxy-agent",
+      "version": "5.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "inflight",
+      "version": "1.0.6",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "inherits",
+      "version": "2.0.4",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "is-any-array",
+      "version": "3.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "is-fullwidth-code-point",
+      "version": "3.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "javascript-natural-sort",
+      "version": "0.7.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "js-tokens",
+      "version": "9.0.1",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "long",
+      "version": "4.0.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "loupe",
+      "version": "3.2.1",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "magic-string",
+      "version": "0.30.21",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "make-dir",
+      "version": "3.1.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "math-intrinsics",
+      "version": "1.1.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "mathjs",
+      "version": "11.12.0",
+      "license": "Apache-2.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "meshoptimizer",
+      "version": "0.18.1",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "mime-db",
+      "version": "1.52.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "mime-types",
+      "version": "2.1.35",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "mimic-response",
+      "version": "2.1.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "mind-ar",
+      "version": "1.2.5",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "minimatch",
+      "version": "3.1.5",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "minipass",
+      "version": "7.1.3",
+      "license": "BlueOak-1.0.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "minizlib",
+      "version": "3.1.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "ml-array-max",
+      "version": "2.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "ml-array-min",
+      "version": "2.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "ml-array-rescale",
+      "version": "2.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "ml-matrix",
+      "version": "6.14.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "ms",
+      "version": "2.1.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "nan",
+      "version": "2.28.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "nanoid",
+      "version": "3.3.18",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "node-fetch",
+      "version": "2.6.13",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "nopt",
+      "version": "5.0.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "npmlog",
+      "version": "5.0.1",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "object-assign",
+      "version": "4.1.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "once",
+      "version": "1.4.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "path-is-absolute",
+      "version": "1.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "pathe",
+      "version": "2.0.3",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "pathval",
+      "version": "2.0.1",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "picocolors",
+      "version": "1.1.1",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "picomatch",
+      "version": "4.0.5",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "postcss",
+      "version": "8.5.25",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "readable-stream",
+      "version": "3.6.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "regenerator-runtime",
+      "version": "0.13.11",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "require-directory",
+      "version": "2.1.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "rimraf",
+      "version": "3.0.2",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "rollup",
+      "version": "4.62.4",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "safe-buffer",
+      "version": "5.2.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "seedrandom",
+      "version": "3.0.5",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "semver",
+      "version": "6.3.1",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "semver",
+      "version": "7.8.5",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "set-blocking",
+      "version": "2.0.0",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "siginfo",
+      "version": "2.0.0",
+      "license": "ISC",
+      "scope": "development"
+    },
+    {
+      "name": "signal-exit",
+      "version": "3.0.7",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "simple-concat",
+      "version": "1.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "simple-get",
+      "version": "3.1.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "license": "BSD-3-Clause",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "sprintf-js",
+      "version": "1.0.3",
+      "license": "BSD-3-Clause",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "stackback",
+      "version": "0.0.2",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "std-env",
+      "version": "3.10.0",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "string-width",
+      "version": "4.2.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "string_decoder",
+      "version": "1.3.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "strip-ansi",
+      "version": "6.0.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "strip-literal",
+      "version": "3.1.0",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "supports-color",
+      "version": "7.2.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "svd-js",
+      "version": "1.1.1",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "tar",
+      "version": "7.5.22",
+      "license": "BlueOak-1.0.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "three",
+      "version": "0.160.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "tiny-emitter",
+      "version": "2.1.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "tinybench",
+      "version": "2.9.0",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "tinyexec",
+      "version": "0.3.2",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "tinyglobby",
+      "version": "0.2.17",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "tinypool",
+      "version": "1.1.1",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "tinyqueue",
+      "version": "2.0.3",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "tinyrainbow",
+      "version": "2.0.0",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "tinyspy",
+      "version": "4.0.4",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "tr46",
+      "version": "0.0.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "typed-function",
+      "version": "4.2.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "typescript",
+      "version": "5.8.3",
+      "license": "Apache-2.0",
+      "scope": "development"
+    },
+    {
+      "name": "undici-types",
+      "version": "8.3.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "util-deprecate",
+      "version": "1.0.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "vite",
+      "version": "6.4.3",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "vite-node",
+      "version": "3.2.4",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "vitest",
+      "version": "3.2.7",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "webidl-conversions",
+      "version": "3.0.1",
+      "license": "BSD-2-Clause",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "whatwg-url",
+      "version": "5.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "why-is-node-running",
+      "version": "2.3.0",
+      "license": "MIT",
+      "scope": "development"
+    },
+    {
+      "name": "wide-align",
+      "version": "1.1.5",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "wrap-ansi",
+      "version": "7.0.0",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "wrappy",
+      "version": "1.0.2",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "y18n",
+      "version": "5.0.8",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "yallist",
+      "version": "5.0.0",
+      "license": "BlueOak-1.0.0",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "yargs",
+      "version": "16.2.2",
+      "license": "MIT",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    },
+    {
+      "name": "yargs-parser",
+      "version": "20.2.9",
+      "license": "ISC",
+      "scope": "installed production dependency; inclusion in browser bundle is not asserted"
+    }
+  ]
+}

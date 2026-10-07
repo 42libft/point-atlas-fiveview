@@ -1,0 +1,10 @@
+import { writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { auditSource } from './generic-audit-lib.mjs';
+const root = process.env.SOURCE_ROOT ?? fileURLToPath(new URL('../', import.meta.url));
+const report = await auditSource(root, { strict: process.argv.includes('--strict') });
+const index = process.argv.indexOf('--report');
+if (index !== -1) await writeFile(resolve(process.argv[index + 1]), JSON.stringify(report, null, 2) + '\n');
+console.log(JSON.stringify({ scope: report.scope, passed: report.passed, files: report.files.length, totalBytes: report.totalBytes, strict: report.strict, skipped: report.skipped, issues: report.issues }));
+if (!report.passed) process.exitCode = 1;

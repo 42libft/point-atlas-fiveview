@@ -1,0 +1,34 @@
+{
+  "name": "point-atlas-fiveview",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:audit": "node --test tools/audit-policy.test.mjs",
+    "audit:source": "node tools/audit-generic-source.mjs",
+    "audit:dist": "node tools/audit-generic-dist.mjs",
+    "verify": "npm test && npm run test:audit && npm run build && npm run audit:source && npm run audit:dist",
+    "test": "vitest run src",
+    "test:watch": "vitest src"
+  },
+  "dependencies": {
+    "mind-ar": "1.2.5",
+    "three": "0.160.0"
+  },
+  "devDependencies": {
+    "@msgpack/msgpack": "2.8.0",
+    "@types/three": "0.160.0",
+    "typescript": "5.8.3",
+    "vite": "6.4.3",
+    "vitest": "3.2.7"
+  },
+  "overrides": {
+    "nanoid": "3.3.18",
+    "tar": "7.5.22"
+  },
+  "license": "MIT",
+  "description": "A local five-view point-cloud authoring tool with custom image-target AR."
+}
