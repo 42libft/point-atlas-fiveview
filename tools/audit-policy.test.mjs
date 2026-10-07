@@ -92,3 +92,8 @@ test('production build also rejects an added image or camera target', async () =
     assert.ok(report.issues.some(issue => /Unexpected production asset/.test(issue)));
   } finally { await rm(temporary, { recursive: true, force: true }); }
 });
+
+test('rejects an original-site link while allowing only the new demo path', () => checkMutation(async root => {
+  const host = ['https://42libft', '.github.io/'].join('');
+  await writeFile(join(root, 'README.md'), host + 'n2/');
+}, /Original asset or identity reference/));

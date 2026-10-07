@@ -6,6 +6,21 @@ A local, experimental point-cloud authoring tool. Assign your own text, logo or 
 
 The application code is MIT licensed. The bundled font and dependencies retain their respective licenses. Sample shapes and the sample recognition image are generated in code; no precompiled tracking target or artwork image is bundled.
 
+## Try it without installing Node.js
+
+Open the **[HTTPS demo](https://42libft.github.io/point-atlas-fiveview/)** and choose **Try demo**. The generated sample uses ink on a light background. Use the five direction buttons, replace the text or upload your own logo, and save your project as JSON. The page does not start a camera automatically.
+
+The **[v0.1.1 experimental release](https://github.com/42libft/point-atlas-fiveview/releases/tag/v0.1.1)** provides a source ZIP, a prebuilt web ZIP and `SHA256SUMS.txt`. The interface and detailed on-page steps are Japanese; an English quick start is included on the landing page.
+
+To run the web ZIP without a build, extract it and use an already installed Python 3:
+
+```sh
+cd point-atlas-fiveview-web
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Open **http://127.0.0.1:8000/**. Keep all extracted files together. Double-clicking the HTML is unsupported. This loopback address works on the server device; use the HTTPS demo on a separate phone.
+
 ## Run locally
 
 Use Node.js 22 or newer and npm. Node 24.6.0 and npm 11.5.1 were used for verification. Dependencies are pinned in `package-lock.json`; installation scripts are disabled.
@@ -21,7 +36,7 @@ npm run verify
 npm run preview -- --port 4186
 ```
 
-Open **http://127.0.0.1:4186/atlas.html** for the editor or **http://127.0.0.1:4186/atlas-ar.html** for AR preparation. The server binds to loopback. For development, use `npm run dev` and its printed local URL with `/atlas.html`.
+Open **http://127.0.0.1:4186/** for the guide, **http://127.0.0.1:4186/atlas.html** for the editor or **http://127.0.0.1:4186/atlas-ar.html** for AR preparation. The server binds to loopback. For development, use `npm run dev` and its printed local URL with `/atlas.html`.
 
 `npm run verify` runs unit tests, audit rejection tests, TypeScript, the production build and source/build audits. Run `node tools/audit-generic-source.mjs --strict` before installing dependencies when checking a fresh source ZIP. Strict archive mode rejects Git metadata, cache, dependencies and build output; normal checkout mode skips those local working directories.
 
@@ -35,8 +50,8 @@ Open **http://127.0.0.1:4186/atlas.html** for the editor or **http://127.0.0.1:4
 ## Prepare custom image-target AR
 
 1. Choose **AR出力** from the editor, or open the AR page and load a project JSON.
-2. Select your own detailed, flat recognition image, then choose **ターゲットを生成**. A code-generated sample is also available. Save the generated `.mind` file for reuse if needed.
-3. Print or display the **same image** used to compile that target. Use HTTPS or localhost and choose **ARを始める** to request camera access. **終了** ends the session.
+2. Select your own detailed, flat recognition image or choose **自作ターゲットを使う** for a generated sample. **認識画像を保存** downloads the PNG used for compilation (at most 720 pixels on its longest side). Choose **ターゲットを生成**, then save the `.mind` file for reuse.
+3. Print or display the **same image** used to compile that target. Use HTTPS or localhost and choose **ARを始める** to request camera access. **終了** ends the session, including while waiting for camera permission.
 4. **カメラなしで姿勢確認** checks the coordinate mapping without starting a camera. It does not verify image recognition or physical AR tracking.
 
 Text/image processing, compilation and tracking run on the device. There is no analytics endpoint, input-upload API, account requirement or API key. Initial dependency installation uses the npm registry. Once built, the app uses local static assets. The editor stores the current project in the browser for transfer to the AR page.
@@ -49,11 +64,13 @@ Text/image processing, compilation and tracking run on the device. There is no a
 - Point budgets are 4,096, 12,000 and 28,672. Opposing projections of a fixed shape are mirrored; five arbitrary independent images may not form a valid visual hull. Intermediate views blend information; the bottom view falls back to the top.
 - Default colors can appear faint. Try ink on a light background or chalk on a dark background and figure emphasis. Preview backgrounds do not replace the camera image in AR.
 - MindAR must keep seeing the recognition image. Oblique views and walking around it can lose tracking. The displayed geometric angle is not a tracking-success estimate.
-- Cleanup code targets MindAR 1.2.5. Compiler cancellation, memory exhaustion and recovery from internal TensorFlow/WebGL failures are not fully covered. Font and compiler assets are large; Vite reports a large-chunk warning.
+- Cleanup code targets MindAR 1.2.5. There is no in-page compiler cancellation: reload the page and reload your saved project/target to recover. Synthetic camera rejection, delayed permission, tracking loss/recovery and render-context loss are checked separately; memory exhaustion and internal TensorFlow failures are not covered. Font and compiler assets are large; Vite reports a large-chunk warning.
 
 ## Build and distribute
 
 `npm run build` writes the static application to `dist/`. Serve that whole directory, including `licenses/` and `THIRD_PARTY_NOTICES.txt`. Relative asset URLs support subdirectory installation. Camera use requires HTTPS or localhost.
+
+`python3 tools/package-release.py` audits the current source/build and creates versioned source/web ZIPs plus SHA-256 checksums in `.cache/release/`. It does not publish them.
 
 `python3 tools/package-source.py` creates `.cache/point-atlas-fiveview-source.zip` from the explicit source allowlist. It excludes Git history, OS metadata, cache, installed dependencies and generated output. Python 3.9+ is needed only for this packaging helper. The optional headless browser check is described in [verification](docs/VERIFICATION.md).
 

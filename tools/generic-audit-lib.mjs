@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { resolve, relative, dirname, sep } from 'node:path';
 
 export const FONT_SHA256 = '1bc9fabb696915df66f59f99fe450b21fa1d6e48749213d182b173367832a118';
-const originalAssets = /typography-targets\.(?:bin|json)|null2-typography-targets|print-pages-v1|flow-v1\.mind|type-v1\.mind|42libft\.github\.io|work_page_0|approved-ambient-five-direction-typography/;
+const originalAssets = /typography-targets\.(?:bin|json)|null2-typography-targets|print-pages-v1|flow-v1\.mind|type-v1\.mind|42libft\.github\.io(?!\/point-atlas-fiveview\/)|work_page_0|approved-ambient-five-direction-typography/;
 const originalSource = /typography\/generated|approved-presentation|loadTypographyTargets|__ATLAS_RELEASE__|ALTERNATE_FACE_BY_VIEW|alternateFaceForView|blendAlternateAmbientMembership|vAlternateMembership|uAlternateStrength|ambient-perception|MACHADO_|perceptionPalette|AmbientVisionMode|["']original["']|null²|ぬる/;
 const privatePath = /\/Users\/[^\s/]+\/|\/home\/[^\s/]+\/|\/root\/|[A-Z]:\\Users\\/;
 const internalReference = /\b(?:libfile_[0-9a-f]{24,}|file_[0-9a-f]{24,}|[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})\b/i;
@@ -106,7 +106,7 @@ export async function auditSource(directory, { strict = false } = {}) {
 export async function auditDist(directory) {
   const root = resolve(directory), walked = await listFiles(root);
   const issues = [...walked.issues], entries = [];
-  const allowed = /^(?:atlas(?:-ar)?\.html|THIRD_PARTY_NOTICES\.txt|fonts\/IBMPlexSansJP-Bold\.ttf|licenses\/[A-Za-z0-9_.-]+\.txt|assets\/[A-Za-z0-9_.-]+\.(?:js|css))$/;
+  const allowed = /^(?:index\.html|\.nojekyll|atlas(?:-ar)?\.html|THIRD_PARTY_NOTICES\.txt|fonts\/IBMPlexSansJP-Bold\.ttf|licenses\/[A-Za-z0-9_.-]+\.txt|assets\/[A-Za-z0-9_.-]+\.(?:js|css))$/;
   for (const file of walked.files) {
     const bytes = await readFile(file.absolute);
     entries.push({ path: file.path, bytes: bytes.length, sha256: hash(bytes) });
@@ -117,7 +117,7 @@ export async function auditDist(directory) {
       if (/(?:https?:)?\/\/(?:[^\s"'<>]*\.)?(?:googleapis\.com|gstatic\.com|cdn\.jsdelivr\.net|unpkg\.com|github\.io)/.test(text)) issues.push(`External runtime CDN/service: ${file.path}`);
     }
   }
-  for (const path of ['atlas.html', 'atlas-ar.html', 'THIRD_PARTY_NOTICES.txt', 'licenses/point-atlas-fiveview-MIT.txt', 'licenses/MindAR-1.2.5-embedded-NOTICES.txt', 'licenses/Apache-2.0.txt', 'licenses/IBM-Plex-OFL-1.1.txt', 'licenses/mind-ar-LICENSE.txt', 'licenses/three-LICENSE.txt', 'licenses/msgpack-msgpack-LICENSE.txt', 'licenses/tfjs-layers-4.16.0-LICENSE.txt']) {
+  for (const path of ['index.html', '.nojekyll', 'atlas.html', 'atlas-ar.html', 'THIRD_PARTY_NOTICES.txt', 'licenses/point-atlas-fiveview-MIT.txt', 'licenses/MindAR-1.2.5-embedded-NOTICES.txt', 'licenses/Apache-2.0.txt', 'licenses/IBM-Plex-OFL-1.1.txt', 'licenses/mind-ar-LICENSE.txt', 'licenses/three-LICENSE.txt', 'licenses/msgpack-msgpack-LICENSE.txt', 'licenses/tfjs-layers-4.16.0-LICENSE.txt']) {
     if (!entries.some(file => file.path === path)) issues.push(`Required production file missing: ${path}`);
   }
   if (entries.find(file => file.path === 'fonts/IBMPlexSansJP-Bold.ttf')?.sha256 !== FONT_SHA256) issues.push('Bundled font changed');

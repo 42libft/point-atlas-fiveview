@@ -1,6 +1,25 @@
 # Verification
 
-The publication candidate was checked on 2026-10-07. These results describe automated and headless checks of this source, not physical AR tracking.
+Version 0.1.1 was checked on 2026-10-07. These results describe automated checks and an injected canvas video stream, not a physical camera, printed target or iPhone. No real camera permission was requested.
+
+## Current release checks
+
+| Check | Result |
+| --- | --- |
+| Unit tests | 94 passed across 16 files on the current source |
+| Audit tests | 12 passed, including rejection of original-site references while allowing the generic demo URL |
+| TypeScript and Vite | Passed; 28 static files totaling 8,500,018 bytes |
+| Source/build audit | No findings; 86 source files |
+| New release UI and synthetic-camera checks | 14 passed; no page exceptions |
+| Real MindAR Compiler | 512,388-byte target from the downloadable, generated recognition image |
+
+The new checks exercise the landing page at 390/1360 px, five demo views, arbitrary text and JSON download/load, recognition-image download, aspect-preserving normalization and invalid-image recovery. Real MindAR receives a generated canvas stream through an overridden `getUserMedia`; it recognizes the image, loses it when blanked, and reacquires it. Tests cover immediate and delayed rejection, stopping while permission is pending, a late grant during a newer session, stop/start/restart, controller release, and a forced loss of the AR renderer's WebGL context followed by successful restart. They check owned-resource release flags, stopped stream tracks and removed video/canvas nodes; they do not prove absence of every GPU/TensorFlow leak.
+
+Reloading during target compilation permits reloading a saved project and target in a fresh page. This is a page-reload recovery check, not an in-page compiler cancellation feature or an out-of-memory test. The release adds a visible stop control during camera startup and isolates late completion from a newer session.
+
+## Earlier baseline checks
+
+The initial 0.1.0 candidate had the following acceptance results. Its 17-case browser check did not start any camera, and is distinct from the new 14-case synthetic-camera check above.
 
 | Check | Result |
 | --- | --- |
@@ -46,6 +65,14 @@ ATLAS_URL=http://127.0.0.1:4186 CHROME_PATH=/absolute/path/to/chrome python3 too
 
 The script writes local evidence to `.cache/browser/`; it is excluded from the source package. The subdirectory deployment check can be run against a loopback static server that maps a subdirectory to the same `dist/` contents.
 
+For the new release check, keep the same loopback server running and use:
+
+```sh
+ATLAS_URL=http://127.0.0.1:4186 CHROME_PATH=/absolute/path/to/chrome python3 tools/browser-release.py
+```
+
+It writes `.cache/release-browser/`, generates its own image, compiles it with the pinned compiler and replaces camera acquisition before the application loads. A temporary browser profile is used; no camera permission is granted. The test refuses remote URLs.
+
 ## Not verified
 
-No camera was started by the headless check. Physical iPhone/Safari, printed targets, recognition loss/recovery, walking around all five directions, long-running heat/performance and GPU/TensorFlow resource measurements remain unverified. See [remaining validation work](RELEASE_CHECKLIST.md).
+Physical iPhone/Safari, printed targets, physical-camera recognition loss/recovery, walking around all five directions, five-minute heat/performance, memory exhaustion, internal TensorFlow failures and detailed GPU/TensorFlow resource measurements remain unverified. See [remaining validation work](RELEASE_CHECKLIST.md).

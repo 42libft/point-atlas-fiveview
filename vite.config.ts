@@ -14,6 +14,7 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       input: {
+        index: resolve(projectRoot, 'index.html'),
         atlas: resolve(projectRoot, 'atlas.html'),
         ar: resolve(projectRoot, 'atlas-ar.html'),
       },

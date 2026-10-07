@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="自分の文字やロゴを五方向の点群にする、端末内処理の実験的なOSS。">
+  <link rel="icon" href="data:,">
+  <title>Point Atlas Fiveview — はじめる</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#141a1b;color:#e8e6df;font:16px/1.75 system-ui,sans-serif}main{max-width:940px;margin:auto;padding:48px 24px 64px}a{color:#e1c58c;text-underline-offset:4px}a:focus-visible,summary:focus-visible{outline:3px solid #e1c58c;outline-offset:5px}.eyebrow{font-size:12px;letter-spacing:.12em;color:#acbab7}h1{font-size:clamp(30px,6vw,54px);line-height:1.15;letter-spacing:-.025em;margin:18px 0}h2{font-size:22px;margin:0 0 12px}h3{font-size:17px;margin:20px 0 6px}p{margin:0 0 18px}.lead{font-size:clamp(18px,3vw,24px);max-width:700px}.muted{color:#aab8b5;font-size:14px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}.button{display:inline-block;text-decoration:none;padding:12px 19px;border:1px solid #72847e;border-radius:5px;font-weight:650}.primary{background:#ddc18a;color:#172022;border-color:#ddc18a}.strip{display:flex;gap:12px;flex-wrap:wrap;padding:18px 0;color:#d2d8d3;border-top:1px solid #3d4c47;border-bottom:1px solid #3d4c47}.strip span{white-space:nowrap}section{padding-top:34px}ol{padding-left:25px;margin:12px 0}li{padding-left:4px;margin:10px 0}code{font-size:13px;background:#25332e;padding:2px 5px;overflow-wrap:anywhere}pre{background:#25332e;padding:16px;overflow:auto;font-size:13px;line-height:1.7}pre code{padding:0}details{border-top:1px solid #3d4c47;padding:18px 0}summary{cursor:pointer;font-weight:650;margin-bottom:12px}.limit{border-left:3px solid #d8b46d;padding:8px 0 8px 17px}.footer{border-top:1px solid #3d4c47;margin-top:36px;padding-top:20px;font-size:13px}.footer a{display:inline-block;margin:0 16px 10px 0}@media(max-width:560px){main{padding:28px 18px 40px}.actions{display:grid}.button{text-align:center}.strip{font-size:13px;gap:7px 14px}section{padding-top:28px}}
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">OPEN SOURCE / EXPERIMENTAL v0.1.1</p>
+  <h1>Point Atlas Fiveview</h1>
+  <p class="lead">文字やロゴを、見る方向へ割り当てる。</p>
+  <p>上・手前・右・奥・左の5方向へ、自分の文字や画像の輪郭を入れて点群を作ります。画像の処理と描画は、この端末で行います。</p>
+  <div class="actions">
+    <a class="button primary" id="open-demo" href="./atlas.html?demo=1">サンプルを試す / Try demo</a>
+    <a class="button" href="./atlas.html">自分の文字・ロゴで作る</a>
+  </div>
+  <p class="muted">インストール・アカウント登録は不要です。このデモを開いてもカメラは起動しません。</p>
+  <div class="strip"><span>上 ○</span><span>手前 A</span><span>右 B</span><span>奥 C</span><span>左 ◇</span><span>→ 全て自分の入力に変更できます</span></div>
+
+  <section id="quickstart">
+    <h2>まず点群を動かす</h2>
+    <ol>
+      <li><strong>「サンプルを試す」</strong>を開きます。黒い点を明るい背景に表示します。</li>
+      <li><strong>「上・手前・右・奥・左」</strong>を押して、それぞれの形を見ます。ドラッグで回り込み、ホイールで距離を変えられます。</li>
+      <li>方向ごとの欄に短い文字を入れるか、<strong>「画像」</strong>から自分のPNG・JPEG・WebPを選びます。写真の色ではなく、しきい値で選んだ輪郭を使います。</li>
+      <li><strong>「入力を反映」</strong>で更新し、<strong>「プロジェクト保存」</strong>でJSONを保存します。「開く」で五方向の入力と設定を復元できます。</li>
+    </ol>
+    <p class="muted">サンプルは単純な文字・図形をコードから作っています。元の作品画像や誌面、人物写真は含みません。JSONを共有する際は、自分で入力したラベルも確認してください。</p>
+  </section>
+
+  <section id="ar-guide">
+    <h2>自分の画像を使ってARを準備する</h2>
+    <ol>
+      <li>制作画面の<strong>「AR出力」</strong>を押します。別の端末で使う場合は、保存したプロジェクトJSONをAR画面で読み込みます。</li>
+      <li>認識用の平らな画像を選ぶか、<strong>「自作ターゲットを使う」</strong>を押します。</li>
+      <li><strong>「認識画像を保存」</strong>でPNGを保存し、印刷するか別の画面に表示します。歪ませず、模様全体が入るようにしてください。</li>
+      <li><strong>「ターゲットを生成」</strong>で同じ画像を解析します。完了したら「ターゲットを保存」で <code>.mind</code> を保存できます。</li>
+      <li>HTTPSのページで<strong>「ARを始める」</strong>を押し、必要なときだけカメラを許可します。生成に使った<strong>同じ認識画像</strong>へ向けます。「終了」で停止します。</li>
+    </ol>
+    <p>「カメラなしで姿勢確認」では、カメラを起動せずに五方向の座標変換を確認できます。画像認識の実測とは異なります。</p>
+    <p class="limit"><strong>実機iPhone/Safari、実紙の認識、五方向へ回り込む追跡、長時間の熱・性能は未検証です。</strong>認識画像が斜めになる、画面外へ出るなどで追跡が切れる場合があります。</p>
+    <a href="./atlas-ar.html">AR準備画面を開く</a>
+  </section>
+
+  <section>
+    <details><summary>うまく見えないとき</summary>
+      <p>短い文字や太い輪郭から試してください。細線・密な漢字・写真の輪郭・長文では欠けやすくなります。「図形を優先」と、背景に合う黒／白の点を試してください。</p>
+      <p>画像は8 MB・3200万画素以内で、256×256の輪郭に変換します。SVGやフルカラー再現には対応しません。固定形状では正反対の投影が鏡像になるため、任意の5画像が全て両立するとは限りません。</p>
+      <p>カメラが使えない場合はHTTPSを確認し、端末のブラウザー設定からカメラ許可を確認してください。LANのHTTPアドレスやファイルを直接開く方法ではARを利用できません。</p>
+    </details>
+    <details><summary>Download / English quick start</summary>
+      <p>Open <a href="./atlas.html?demo=1">Try demo</a>, use the five view buttons, then enter your own short text or PNG/JPEG/WebP outlines. Save and reload projects as JSON. Processing stays on the device.</p>
+      <p>For AR, export the project, select a recognition image, save that image, compile its target, and point the camera at the same printed/displayed image. Camera access starts only after you press the AR start button. Physical iPhone/Safari and long-run tracking are unverified.</p>
+      <p><a href="https://github.com/42libft/point-atlas-fiveview/releases/tag/v0.1.1">Download v0.1.1 (experimental)</a> includes source and prebuilt static files. To serve the extracted web ZIP locally with an installed Python 3:</p>
+      <pre><code>cd point-atlas-fiveview-web
+python3 -m http.server 8000 --bind 127.0.0.1</code></pre>
+      <p>Open <code>http://127.0.0.1:8000/</code>. This loopback address refers to the device running the server; use the HTTPS demo for a separate phone.</p>
+    </details>
+  </section>
+  <div class="footer">
+    <a href="https://github.com/42libft/point-atlas-fiveview">Source / GitHub</a>
+    <a href="https://github.com/42libft/point-atlas-fiveview/blob/main/README.ja.md">日本語README</a>
+    <a href="./licenses/point-atlas-fiveview-MIT.txt">MIT license</a>
+    <a href="./THIRD_PARTY_NOTICES.txt">Third-party notices</a>
+    <p>入力を送信する解析APIやAPIキーはありません。ページとアセットの配信にはGitHub Pagesを使います。入力素材の権利は利用者が確認してください。</p>
+  </div>
+</main>
+</body>
+</html>

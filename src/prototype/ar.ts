@@ -17,16 +17,31 @@ function showProjection(p:TargetProjectionGeometry|null){projection=p;targetAngl
 const el=<T extends HTMLElement>(id:string)=>document.getElementById(id) as T;
 let project:Project|null=null, targetBytes:Uint8Array|null=null, imageUrl:string|null=null, currentBody:AtlasBody|GalaxyBody|null=null;
 let arBusy=false;
+let arGeneration=0;
 let activeStop:(()=>void)|undefined;
 window.addEventListener('pagehide',()=>activeStop?.());
 function loadProject(s:string){project=parseProject(s);el('project-status').textContent=`${project.mode} / ${project.budget}点まで / 5方向 / 色: ${project.contrast} / 読取: ${project.mode==='galaxy'&&project.viewing==='raised'?'上方35°':'水平'}`;el<HTMLButtonElement>('pose').disabled=false;if(targetBytes)el<HTMLButtonElement>('start').disabled=false;}
 
 try{const s=localStorage.getItem('point-atlas-project');if(s)loadProject(s);else el('project-status').textContent='制作画面からAR出力するか、プロジェクトを選んでください。';}catch(e){el('status').textContent=String(e);}
 el<HTMLInputElement>('project').onchange=async()=>{try{const f=el<HTMLInputElement>('project').files?.[0];if(f&&f.size<3_000_000)loadProject(await f.text());}catch(e){el('status').textContent=String(e);}};
-async function setTarget(url:string){if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=url;el<HTMLImageElement>('target-preview').src=url;await el<HTMLImageElement>('target-preview').decode();targetBytes=null;el<HTMLButtonElement>('start').disabled=true;el<HTMLButtonElement>('save-target').disabled=true;}
+async function setTarget(url:string){
+  const next=new Image();next.src=url;
+  try{await next.decode();if(next.naturalWidth*next.naturalHeight>32_000_000)throw Error('3200万画素以内の画像を選んでください。');}
+  catch(error){URL.revokeObjectURL(url);throw error;}
+  if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=url;
+  el<HTMLImageElement>('target-preview').src=url;targetBytes=null;
+  el<HTMLButtonElement>('start').disabled=true;el<HTMLButtonElement>('save-target').disabled=true;el<HTMLButtonElement>('save-image').disabled=false;
+}
+function targetCanvas(image:HTMLImageElement){
+  if(!image.naturalWidth)throw Error('画像を選んでください。');
+  const canvas=document.createElement('canvas');const scale=Math.min(1,720/Math.max(image.naturalWidth,image.naturalHeight));
+  canvas.width=Math.round(image.naturalWidth*scale);canvas.height=Math.round(image.naturalHeight*scale);
+  canvas.getContext('2d')!.drawImage(image,0,0,canvas.width,canvas.height);return canvas;
+}
+el('save-image').onclick=()=>{try{const a=document.createElement('a');a.href=targetCanvas(el<HTMLImageElement>('target-preview')).toDataURL('image/png');a.download='point-atlas-recognition-image.png';a.click();}catch(e){el('status').textContent=String(e);}};
 el<HTMLInputElement>('target').onchange=async()=>{try{const f=el<HTMLInputElement>('target').files?.[0];if(!f)return;if(!['image/png','image/jpeg','image/webp'].includes(f.type)||f.size>8_000_000)throw Error('8MB以内の画像を選んでください。');await setTarget(URL.createObjectURL(f));}catch(e){el('status').textContent=String(e);}};
-el('sample').onclick=async()=>{const c=document.createElement('canvas');c.width=c.height=720;const x=c.getContext('2d')!;x.fillStyle='#f2eedf';x.fillRect(0,0,720,720);x.fillStyle='#152326';x.font='bold 60px sans-serif';x.fillText('POINT ATLAS',62,99);x.lineWidth=8;x.strokeStyle='#152326';x.strokeRect(24,24,672,672);for(let i=0;i<130;i++){const px=50+((i*73+23)%617),py=140+((i*i*29+11)%510);x.fillStyle=i%3?'#152326':'#ab6939';if(i%2)x.fillRect(px,py,10+i%27,9+i%23);else{x.beginPath();x.arc(px,py,7+i%19,0,Math.PI*2);x.fill();}}await setTarget(c.toDataURL());el('status').textContent='自作ターゲット。右クリックで画像を保存できます。';};
-el('compile').onclick=async()=>{const b=el<HTMLButtonElement>('compile');b.disabled=true;try{const image=el<HTMLImageElement>('target-preview');if(!image.naturalWidth)throw Error('画像を選んでください。');el('status').textContent='画像を解析中…';const {Compiler}=await import('mind-ar/dist/mindar-image.prod.js');const compiler=new Compiler();const c=document.createElement('canvas');const scale=Math.min(1,720/Math.max(image.naturalWidth,image.naturalHeight));c.width=Math.round(image.naturalWidth*scale);c.height=Math.round(image.naturalHeight*scale);c.getContext('2d')!.drawImage(image,0,0,c.width,c.height);const normalized=new Image();normalized.src=c.toDataURL();await normalized.decode();await compiler.compileImageTargets([normalized],(value:number)=>el('status').textContent=`画像を解析中… ${Math.round(value)}%`);const next=new Uint8Array(compiler.exportData());validateMindTarget(next);targetBytes=next;el('status').textContent=`生成しました / ${(targetBytes.byteLength/1024).toFixed(0)} KB`;el<HTMLButtonElement>('save-target').disabled=false;el<HTMLButtonElement>('start').disabled=!project;}catch(e){el('status').textContent=`生成に失敗しました: ${e}`;}finally{b.disabled=false;}};
+el('sample').onclick=async()=>{const c=document.createElement('canvas');c.width=c.height=720;const x=c.getContext('2d')!;x.fillStyle='#f2eedf';x.fillRect(0,0,720,720);x.fillStyle='#152326';x.font='bold 60px sans-serif';x.fillText('POINT ATLAS',62,99);x.lineWidth=8;x.strokeStyle='#152326';x.strokeRect(24,24,672,672);for(let i=0;i<130;i++){const px=50+((i*73+23)%617),py=140+((i*i*29+11)%510);x.fillStyle=i%3?'#152326':'#ab6939';if(i%2)x.fillRect(px,py,10+i%27,9+i%23);else{x.beginPath();x.arc(px,py,7+i%19,0,Math.PI*2);x.fill();}}await setTarget(c.toDataURL());el('status').textContent='自作ターゲット。「認識画像を保存」で印刷用のPNGを保存できます。';};
+el('compile').onclick=async()=>{const b=el<HTMLButtonElement>('compile');const inputs=['target','sample','mind-file'].map(id=>el<HTMLInputElement|HTMLButtonElement>(id));b.disabled=true;inputs.forEach(input=>input.disabled=true);try{const image=el<HTMLImageElement>('target-preview');if(!image.naturalWidth)throw Error('画像を選んでください。');el('status').textContent='画像を解析中…';const {Compiler}=await import('mind-ar/dist/mindar-image.prod.js');const compiler=new Compiler();const c=targetCanvas(image);const normalized=new Image();normalized.src=c.toDataURL();await normalized.decode();await compiler.compileImageTargets([normalized],(value:number)=>el('status').textContent=`画像を解析中… ${Math.round(value)}%`);const next=new Uint8Array(compiler.exportData());validateMindTarget(next);targetBytes=next;el('status').textContent=`生成しました / ${(targetBytes.byteLength/1024).toFixed(0)} KB`;el<HTMLButtonElement>('save-target').disabled=false;el<HTMLButtonElement>('start').disabled=!project;}catch(e){el('status').textContent=`生成に失敗しました: ${e}`;}finally{b.disabled=false;inputs.forEach(input=>input.disabled=false);}};
 el('save-target').onclick=()=>{if(!targetBytes)return;const a=document.createElement('a');const copy=new Uint8Array(targetBytes);a.href=URL.createObjectURL(new Blob([copy]));a.download='point-atlas-target.mind';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
 function configure(body:AtlasBody|GalaxyBody){body.root.rotation.x=Math.PI/2;body.root.scale.setScalar(.4);body.root.updateMatrixWorld(true);}
 function direction(body:AtlasBody|GalaxyBody,camera:THREE.Camera){body.root.updateWorldMatrix(true,false);const local=body.root.worldToLocal(camera.getWorldPosition(new THREE.Vector3())).sub(CENTER).normalize();return local;}
@@ -34,9 +49,10 @@ el('pose').onclick=()=>{if(arBusy||!project)return;showProjection(null);const re
 el('start').onclick=async()=>{
   if(arBusy||!project||!targetBytes)return;
   arBusy=true;
+  const generation=++arGeneration;
   const controls=[...el('gate').querySelectorAll<HTMLInputElement|HTMLButtonElement>('input,button')].map(control=>({control,disabled:control.disabled}));
   controls.forEach(({control})=>control.disabled=true);
-  const unlock=()=>{arBusy=false;controls.forEach(({control,disabled})=>control.disabled=disabled);};
+  const unlock=()=>{if(generation!==arGeneration)return;arBusy=false;controls.forEach(({control,disabled})=>control.disabled=disabled);};
   showProjection(null);
   el('status').textContent='カメラと画像認識を準備しています…';
   let cleanup:(()=>void)|undefined;
@@ -105,6 +121,7 @@ el('start').onclick=async()=>{
       el('gate').hidden=false;el('overlay').classList.add('hidden');unlock();
     };
     cleanup=stop;activeStop=stop;
+    el('overlay').classList.remove('hidden');el('tracking').textContent='カメラを準備しています';el('stop').onclick=stop;
     renderer.domElement.addEventListener('webglcontextlost',onContextLost);
     document.addEventListener('visibilitychange',onVisibility);
     anchor.onTargetFound=()=>{if(stopped)return;visible=true;smoother.reset();el('tracking').textContent='認識中';};
@@ -125,7 +142,7 @@ el('start').onclick=async()=>{
       renderer.render(scene,camera);
     });
     el('stop').onclick=stop;
-  }catch(e){cleanup?.();unlock();el('status').textContent=`ARを開始できません: ${e}`;}
+  }catch(e){cleanup?.();unlock();if(generation===arGeneration)el('status').textContent=`ARを開始できません: ${e}`;}
   finally{if(timer)clearTimeout(timer);}
 };
 
